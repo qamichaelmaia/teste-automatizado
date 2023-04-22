@@ -3,7 +3,6 @@ const { faker } = require('@faker-js/faker'); /// Gerador de dados Faker
 
 describe('Funcionalidade Pré cadastro', () => {
 
-
     beforeEach(() => {
         cy.visit('minha-conta/')
     });
@@ -23,7 +22,11 @@ describe('Funcionalidade Pré cadastro', () => {
         cy.get('.woocommerce-Button').click()
 
         cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificados com sucesso.') /// Confirmação de mensagem
+    });
 
-
+    it('Deve completar o pré-cadastro com sucesso usando Comandos customizados', () => {
+        let emailFaker2 = faker.internet.email()
+        cy.preCadastro(emailFaker2, '14Michael@MaiaQualityAssurance', 'Michael', 'Maia')
+        cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificados com sucesso.')
     });
 });
