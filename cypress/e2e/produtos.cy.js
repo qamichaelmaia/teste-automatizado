@@ -8,9 +8,9 @@ describe('Funcionalidade Página de produtos', () => {
 
     it('Deve selecionar um produto da lista', () => {
         cy.get('[class="product-block grid"]')
-            ///first()
-            //last()
-            //eq(3)
+            //.first()
+            //.last()
+            //.eq(3)
             .contains('Abominable Hoodie')
             .click()
     });
@@ -37,4 +37,9 @@ describe('Funcionalidade Página de produtos', () => {
     it('Deve adicionar produtos ao carrinho - Usando Comando customizado', () => {
         cy.addProdutos('Abominable Hoodie', 'XS', 'Red', 7)
     });
+
+    it('Deve adicionar produtos ao carrinho - Usando Comando customizado', () => {
+        cy.addProdutos('Aether Gym Pant', '34', 'Brown', 2)
+    });
+    
 });
