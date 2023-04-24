@@ -4,7 +4,14 @@
   "description": "Teste automatizado em Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "npx cypress run --browser chrome",
+    "cy:open": "npx cypress open",
+    "cy:report":"npx cypress run --record --key e6849972-1e61-4ba8-aa8f-1f9ba3e72c9c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qamichaelmaia/teste-automatizado.git"
   },
   "keywords": [],
   "author": "",
