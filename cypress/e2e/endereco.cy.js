@@ -4,17 +4,18 @@ const dadosEndereco = require('../fixtures/endereco.json')
 describe('Funcionalidade Endereços - Faturamento e Entrega', () => {
     beforeEach(() => {
         cy.visit('minha-conta')
-        cy.fixture('perfil').then(dados =>{
+        cy.fixture('perfil').then(dados => {
             cy.login(dados.usuario, dados.senha)
         })
 
     });
 
     it('Deve fazer cadastro de faturamento com sucesso', () => {
-        EnderecoPage.editarEnderecoFaturamento('Michael','Maia','EBAC','Brasil','Av Rio Branco','450','Jacobina','Bahia','44700000','71999348625','alunomichael@ebac.com')
+        EnderecoPage.editarEnderecoFaturamento('Michael', 'Maia', 'EBAC', 'Brasil', 'Av Rio Branco', '450', 'Jacobina', 'Bahia', '44700000', '71999348625', 'alunomichael@ebac.com')
         //Confirmação
-        cy.get('.woocommerce-message').should('contain','Endereço alterado com sucesso.')
+        cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso.')
     });
+
 
     it('Deve fazer cadastro de faturamento com sucesso - Usando arquivo de dados', () => {
         EnderecoPage.editarEnderecoFaturamento(
@@ -29,12 +30,12 @@ describe('Funcionalidade Endereços - Faturamento e Entrega', () => {
             dadosEndereco[1].cep,
             dadosEndereco[1].telefone,
             dadosEndereco[1].email
-            )
+        )
         //Confirmação
-        cy.get('.woocommerce-message').should('contain','Endereço alterado com sucesso.')
+        cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso.')
     });
 
-    it.only('Deve fazer cadastro de envio com sucesso - Usando arquivo de dados', () => {
+    it('Deve fazer cadastro de envio com sucesso - Usando arquivo de dados', () => {
         EnderecoPage.editarEnderecoEntrega(
             dadosEndereco[0].nome,
             dadosEndereco[0].sobrenome,
@@ -47,7 +48,7 @@ describe('Funcionalidade Endereços - Faturamento e Entrega', () => {
             dadosEndereco[0].cep
         )
         //Confirmação
-        cy.get('.woocommerce-message').should('contain','Endereço alterado com sucesso.')
+        cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso.')
     });
 
 });
